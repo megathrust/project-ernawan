@@ -1,0 +1,62 @@
+<header id="header">
+  <nav id="primary-header" class="navbar navbar-expand-lg py-4">
+    <div class="container-fluid padding-side">
+      <div class="d-flex justify-content-between align-items-center w-100">
+        <a class="navbar-brand fw-bold" href="/">
+          <img src="/images/logo.png" class="logo img-fluid" alt="Logo">
+          <span>ERNAWAN</span>
+        </a>
+        <button class="navbar-toggler border-0 d-flex d-lg-none order-3 p-2 shadow-none" type="button"
+          data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false">
+          <svg class="navbar-icon" width="60" height="60">
+            <use xlink:href="#navbar-icon"></use>
+          </svg>
+        </button>
+        <div class="header-bottom offcanvas offcanvas-end" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
+          <div class="offcanvas-header px-4 pb-0">
+            <button type="button" class="btn-close btn-close-black mt-2" data-bs-dismiss="offcanvas"
+              aria-label="Close" data-bs-target="#bdNavbar"></button>
+          </div>
+          <div class="offcanvas-body align-items-center justify-content-center">
+            <div class="search d-block d-lg-none m-5">
+              <% if (!user) { %>
+                <a href="/auth/login" class="form-control bg-success text-light border-0 rounded-5 px-4 py-2">Login</a>
+              <% } else { %>
+                <a href="/auth/logout" class="form-control bg-danger text-light border-0 rounded-5 px-4 py-2">Logout</a>
+              <% } %>
+            </div>
+            <ul class="navbar-nav align-items-center mb-2 mb-lg-0">
+              <li class="nav-item px-3">
+                <a class="nav-link active p-0" aria-current="page" href="#slider">Beranda</a>
+              </li>
+              <li class="nav-item px-3">
+                <a class="nav-link p-0" href="#about-us">Tentang</a>
+              </li>
+              <li class="nav-item px-3">
+                <a class="nav-link p-0" href="#room">Paket</a>
+              </li>
+              <li class="nav-item px-3">
+                <a class="nav-link p-0" href="#gallery">Galeri</a>
+              </li>
+              <li class="nav-item px-3">
+                <a class="nav-link p-0" href="#services">Pelayanan</a>
+              </li>
+              <% console.log(admin); if (admin) { %>
+                <li class="nav-item px-3">
+                  <a class="nav-link p-0" href="/admin/dashboard">Dashboard</a>
+                </li>
+              <% } %>
+            </ul>
+          </div>
+        </div>
+        <div class="search btn-login" id="login-btn">
+          <% if (!user) { %>
+            <a href="/auth/login" class="form-control bg-success text-light border-0 rounded-5 px-4 py-2">Login</a>
+          <% } else { %>
+            <a href="/auth/logout" class="form-control bg-danger text-light border-0 rounded-5 px-4 py-2">Logout</a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

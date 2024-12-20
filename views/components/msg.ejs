@@ -1,0 +1,42 @@
+<% if (success_msg != '') { %>
+    <link rel="stylesheet" href="https://www.cssscript.com/demo/alert-confirm-toast-cute/style.css" />
+    <script src="https://www.cssscript.com/demo/alert-confirm-toast-cute/cute-alert.js"></script>
+    <script type="text/javascript">
+        cuteToast({
+            type: "success", // or 'info', 'error', 'warning'
+            message: "<%- success_msg %>",
+            timer: 5000
+        })
+    </script>
+<% } %>
+
+<% if (error_msg != '') { %>
+    <link rel="stylesheet" href="https://www.cssscript.com/demo/alert-confirm-toast-cute/style.css" />
+    <script src="https://www.cssscript.com/demo/alert-confirm-toast-cute/cute-alert.js"></script>
+    <script type="text/javascript">
+        cuteToast({
+            type: "error", // or 'info', 'error', 'warning'
+            message: "<%- error_msg %>",
+            timer: 5000
+        })
+    </script>
+<% } %>
+
+<% if (confirm_msg != '') { %>
+    <link rel="stylesheet" href="https://www.cssscript.com/demo/alert-confirm-toast-cute/style.css" />
+    <script src="https://www.cssscript.com/demo/alert-confirm-toast-cute/cute-alert.js"></script>
+    <script type="text/javascript">
+        cuteAlert({
+            type: "question",
+            title: "Konfirmasi?",
+            message: "<%- confirm_msg %>",
+            confirmText: "Iya",
+            cancelText: "Batal"
+        }).then((e)=>{
+            if ( e == ("Thanks")){
+        } else {
+            alert(":-(");
+        }
+        })
+    </script>
+<% } %>

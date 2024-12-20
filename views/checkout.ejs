@@ -1,0 +1,58 @@
+<div class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-xl shadow-lg w-96">
+        <div class="flex items-center mb-6">
+            <button onclick="window.history.back()" class="mr-4 text-gray-600 hover:text-gray-900">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+            </button>
+            <h2 class="text-2xl font-bold text-gray-800">Pemesanan Gedung</h2>
+        </div>
+
+        <form class="space-y-4" action="/submit-order" method="POST">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Paket Terpilih</label>
+                <input type="text" 
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-200 text-gray-600" 
+                    value="<%= package.name %> - <%= package.price.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' }) %>" 
+                    readonly>
+                    <input type="hidden" name="selectedPackage[name]" value="<%= package.name %>">
+                    <input type="hidden" name="selectedPackage[price]" value="<%= package.price %>">                    
+            </div>
+
+            <div>
+                <label for="nama" class="block text-sm font-medium text-gray-700 mb-2">Nama Pemesan</label>
+                <input type="text" id="nama" name="nama" required 
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Masukkan nama pemesan">
+            </div>
+
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Pemesan</label>
+                <input type="email" id="email" name="email" required 
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Masukkan email pemesan">
+            </div>
+
+            <div>
+                <label for="tanggal" class="block text-sm font-medium text-gray-700 mb-2">Tanggal dan Jam Pemesanan</label>
+                <div class="flex items-center space-x-2">
+                    <input type="date" id="tanggal" name="tanggal" required 
+                        class="w-2/3 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <input type="time" id="jam" name="jam" required 
+                        class="w-1/3 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <button type="button" onclick="cekJadwal()" 
+                    class="mt-3 bg-blue-500 text-white px-3 py-2 rounded-md hover:bg-blue-600 transition duration-300">
+                    Cek Jadwal
+                </button>
+                <p id="statusJadwal" class="mt-2 text-sm text-gray-600"></p>
+            </div>
+
+            <button type="submit" 
+                class="w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600 transition duration-300">
+                Submit Pemesanan
+            </button>
+        </form>
+    </div>
+</div>
