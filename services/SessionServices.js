@@ -12,7 +12,7 @@ class SessionConfig {
             cookie: {
                 maxAge: 86400000,
                 secure: process.env.SECURE_APP === 'true',  // Pastikan ini berupa boolean
-                httpOnly: true,  // Tambahan keamanan
+                httpOnly: false,  // Tambahan keamanan
             },            
             store: new MemoryStoreInstance({
                 checkPeriod: 86400000,
